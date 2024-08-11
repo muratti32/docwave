@@ -23,7 +23,7 @@ export const createDocument = async (props: CreateDocumentParams) => {
             {
                 metadata: metaData,
                 usersAccesses,
-                defaultAccesses: []
+                defaultAccesses: ["room:write"]
             }
 
         )
@@ -33,5 +33,21 @@ export const createDocument = async (props: CreateDocumentParams) => {
         return parseStringify(room)
     } catch (error: any) {
         console.log(`halo erron happend while createing a room:`,);
+    }
+}
+
+export const getDocument = async ({ roomId, userId }: { roomId: string, userId: string }) => {
+    try {
+        const room = await liveblocks.getRoom(roomId)
+
+        //TODO: Bring this back when we have the access control
+        // const hasAccess = Object.keys(room.usersAccesses).includes(userId)
+        // if (!hasAccess) {
+        //     throw new Error("You don't have access to this document")
+        // }
+        return parseStringify(room)
+    } catch (error) {
+        console.log(`halo get document error :`, error);
+        throw new Error("Document not found")
     }
 }

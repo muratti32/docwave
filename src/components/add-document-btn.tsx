@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { createDocument } from '@/lib/room.actions';
+import { createDocument } from '@/lib/actions/room.actions';
 import { useRouter } from 'next/navigation';
 
 export const AddDocumentBtn = (props: AddDocumentBtnProps) => {

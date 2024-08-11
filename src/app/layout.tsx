@@ -4,7 +4,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
-import { LiveBlockProvider } from '@/app/Provider';
+import { Provider } from '@/app/Provider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -38,7 +38,7 @@ export default function RootLayout({
             inter.variable,
           )}
         >
-          <LiveBlockProvider>{children}</LiveBlockProvider>
+          <Provider>{children}</Provider>
         </body>
       </html>
     </ClerkProvider>
