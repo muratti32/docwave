@@ -51,3 +51,18 @@ export const getDocument = async ({ roomId, userId }: { roomId: string, userId: 
         throw new Error("Document not found")
     }
 }
+
+export const updateDocument = async (roomId: string, title: string) => {
+    try {
+        const room = await liveblocks.updateRoom(roomId, {
+            metadata: {
+                title
+            }
+        })
+        revalidatePath(`/documents/${roomId}`)
+        return parseStringify(room)
+    } catch (error) {
+        console.log(`halo error updating document:`, error);
+        throw new Error("Error updating the document")
+    }
+}

@@ -24,7 +24,7 @@ const DocumentIdPage = async (props: SearchParamProps) => {
   //TODO: Asses the room access and redirect to the home page if the user doesn't have access to the room
 
   return (
-    <main className="w-full h-screen">
+    <main className="w-full">
       <CollabrativeRoom roomId={id} roomMetadata={room.metadata} />
     </main>
   );
