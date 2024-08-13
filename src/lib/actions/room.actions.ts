@@ -66,3 +66,19 @@ export const updateDocument = async (roomId: string, title: string) => {
         throw new Error("Error updating the document")
     }
 }
+
+export const getDocuments = async (email: string) => {
+    try {
+        const room = await liveblocks.getRooms({ userId: email })
+
+        //TODO: Bring this back when we have the access control
+        // const hasAccess = Object.keys(room.usersAccesses).includes(userId)
+        // if (!hasAccess) {
+        //     throw new Error("You don't have access to this document")
+        // }
+        return parseStringify(room)
+    } catch (error) {
+        console.log(`halo get document error :`, error);
+        throw new Error("Document not found")
+    }
+}

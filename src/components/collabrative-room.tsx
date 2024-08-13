@@ -10,8 +10,6 @@ import { ClientSideSuspense, RoomProvider } from '@liveblocks/react/suspense';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
-type Props = {};
-
 export const CollabrativeRoom = (props: CollaborativeRoomProps) => {
   const { roomId, roomMetadata } = props;
   const currentUserType = 'editor';
@@ -21,7 +19,7 @@ export const CollabrativeRoom = (props: CollaborativeRoomProps) => {
   );
   const [loading, setLoading] = useState(false);
   const contafinerRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const updateTitleHandler = async (
     e: React.KeyboardEvent<HTMLInputElement>,
@@ -58,7 +56,7 @@ export const CollabrativeRoom = (props: CollaborativeRoomProps) => {
     return () => {
       document.removeEventListener('click', handleClickOutSide);
     };
-  }, [documentTitle]);
+  }, [documentTitle, roomId]);
 
   useEffect(() => {
     if (editing && inputRef.current) {

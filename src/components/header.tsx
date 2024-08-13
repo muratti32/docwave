@@ -13,7 +13,7 @@ export const Header = (props: HeaderProps) => {
           alt="Logo with"
           width={120}
           height={32}
-          className="hidden md:block bg-slate-500"
+          className="hidden md:block"
         />
         <Image
           src={'/assets/icons/logo-icon.svg'}
