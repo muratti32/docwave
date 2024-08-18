@@ -11,8 +11,7 @@ import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 export const CollabrativeRoom = (props: CollaborativeRoomProps) => {
-  const { roomId, roomMetadata } = props;
-  const currentUserType = 'editor';
+  const { roomId, roomMetadata, users, currentUserType } = props;
   const [editing, setEditing] = useState(false);
   const [documentTitle, setDocumentTitle] = useState(
     roomMetadata?.title || 'Untitled Document',
@@ -112,7 +111,7 @@ export const CollabrativeRoom = (props: CollaborativeRoomProps) => {
               </SignedOut>
             </div>
           </Header>
-          <Editor />
+          <Editor roomId={roomId} currentUserType={currentUserType} />
         </div>
       </ClientSideSuspense>
     </RoomProvider>
