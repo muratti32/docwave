@@ -32,7 +32,7 @@ const DocumentIdPage = async (props: SearchParamProps) => {
   }));
   const currentUserType = room.usersAccesses[
     clerkUser.emailAddresses[0].emailAddress
-  ].includes('room:write')
+  ]?.includes('room:write')
     ? 'editor'
     : 'viewer';
   //TODO: Asses the room access and redirect to the home page if the user doesn't have access to the room
