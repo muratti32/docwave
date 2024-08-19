@@ -17,6 +17,8 @@ export const getClerkUsers = async (props: Props) => {
         avatar: user.imageUrl,
     }))
 
+    if (!users.length) return []
+
     const sortedUsers = userIds.map((userId) => users.find((user) => user.email === userId))
 
     return parseStringify(sortedUsers)
