@@ -82,3 +82,4 @@ export const getDocuments = async (email: string) => {
         throw new Error("Document not found")
     }
 }
+
